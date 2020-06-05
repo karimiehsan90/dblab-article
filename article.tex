@@ -72,80 +72,76 @@
 سیستم‌های دیگری نیز وجود دارند، که دارای رابط‌های سطح پایین برنامه‌نویسی قدرتمند و متنوع هستند، که در ۱۰ و ۱۱ به آن‌ها اشاره شده است.
 مشکل آن‌ها این است که، آن‌ها خاص هستند، و نمی‌توانند رابط سطح بالایی را ارایه دهند.
 
-\section{ مهندسی صنایع}
-مهندسی صنایع   از شاخه های مهندسی است، که می کوشد با تلفیق دانش مهندسی، ریاضیات، اقتصاد و
-مدیریت، کارایی سیستم های تولیدی، فرایندها و سازمان ها را بهبود دهد.
-مهندسی صنایع بطور کلی اثربخشی، کارایی، تطبیق پذیری، پاسخ گویی، کیفیت و بهبود مستمر کالاها، خدمات و سودآوری را مدنظر قرار می دهد. با
-تحلیل و مدیریت و برنامه ریزی دقیق به این موارد میپردازد.
-مهندسی صنایع عنوانی برای بیان رویکردی در علم مدیریت سازمان ها و صنایع می باشد.
-نام فارسی این رشته به عنوان معادل درست انگلیسی آن عبارت مهندسی صنعتی است که توسط فردریک تیلور به کار برده شد.
+\section{ فریمورک پیشنهادی برای یادگیری ماشین توزیع‌شده}
+ما یک فریمورک یادگیری ماشین، ارایه داده‌ایم، که ماهیتی عمومی دارد، و دارای رابط برنامه‌نویسی سطح بالا می‌باشد. این فریمورک، عملیات رایج برای داده‌های بی‌ساختار را فراهم می‌کند. و در قسمت بکند آن، زمانبندی برای چندکار، به‌صورت همزمان، در محیط توزیع‌شده فراهم می‌کند.
+در حقیقت این فریمورک عملیات خوشه‌بندی‌را برای سندها پشتیبانی می‌کند. همینطور \lr{NLP} را نیز ساپورت می‌کند.
 
-\section{تاریخچه مهندسی صنایع}
-در زمان تیلور که تعدادی از موضوعات مدیریتی توسط وی ارائه گردید توسط افراد دیگر برای اینکه اهمیت این موضوعات و نیز جایگاه دست اندرکاران
-مربوطه از رشته های مهندسی کمتر نمود داده نشود و مهندسین برای آنها نیز اهمیت قایل شوند از اصطلاح مهندسی صنایع استفاده شد. موضوعات با
-نام مهندسی صنایع بخشی از موضوعات علم مدیریت می باشد. فردریک تیلور (١٩١٥–١٨٥٦ (بنیانگذار علم مدیریت را پدر مهندسی صنایع می دانند.
-تعاریفی که از مهندسی صنایع ارائه می شود مانند اینکه رشته ای است که با طراحی، بهبود، و پیاده سازی سیستمای یکپارچه از افراد، مواد، اطلاعات،
-تجهیزات و انرژی مرتبط می باشد، بیانی از علم مدیریت می باشد. مهندسی صنایع آن گونه که در ایران تدریس می شود مبتنی بر بهینه سازی،
-بهینه سازی خطی (تحقیق در عملیات) کارسنجی و زمان سنجی می باشد.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.2\textwidth]{clustering.png}
+    \label{fig:clustering}
+    \caption{فریمورک عمومی برای یادگیری ماشین در کلان‌داده}
+\end{figure}
 
+در شکل\ref{fig:clustering} کلیات عملیات فریمورک را میبینیم، که اسنادی که باتوجه به مقدار آن‌ها در دسته‌ی کلان‌داده قرار می‌گیرند، را به‌عنوان ورودی گرفته، و خوشه‌ها را خروجی می‌دهد.
+در مرحله‌ی اول، کلیدواژه‌ها را پیدا کرده، و سپس \lr{feature}هارا مشحص می‌کند، و مقدار \lr{TF-IDF} آن‌هارا محاسبه می‌کند. سپس الگوریتم محاسبه فاصله‌را مشخص می‌کنیم، و باتوجه به تشابه اسناد، خوشه‌بندی انجام می‌شود.
+محاسبه \lr{TF-IDF} به این صورت انجام می‌شود، که دومقدار \lr{term frequency} که برابر تعداد تکرار کلیدواژه، در این سند است، و \lr{document frequency} که تعداد اسنادی است که دارای این کلیدواژه هستند مشخص می‌شود.
+سپس ازطریق فرمول زیر مقدار \lr{TF-IDF} مشخص می‌شود.  \\
 
+\begin{equation}
+    TF_IDF=TF \times \log \dfrac{N}{DF}
+\end{equation}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{distance.png}
+    \label{fig:distance}
+    \caption{توابع مختلف برای محاسبه‌ی شباهت دوبردار در یادگیری ماشین}
+\end{figure}
 
-
-\section{مهندسی صنایع در ایران}
-دانشکده مهندسی صنایع دانشگاه صنعتی شریف به عنوان اولین دانشکده مهندسی صنایع کشور در سال ١٣٤٧ با پذیرش ٣٩ دانشجو آغاز به کار کرد.
-در سال ١٣٥٢ نیز دانشکده مهندسی صنایع دانشگاه علم و صنعت ایران آغاز به کار کرد؛ و در سال ١٣٥٥ گروه مستقلی تحت عنوان مهندسی صنایع
-در دانشگاه صنعتی امیرکبیر (پلی تکنیک تهران) تشکیل شد و اولین گروه فارغ التحصیلان ٔ دانشکده مهندسی صنایع این دانشگاه در سال ١٣٦٢ وارد
-ٔ جامعه صنعتی کشور گردید. با گذشت زمان، این رشته به عنوان رشته ای در دانشگاه های مختلف کشور جایگاه خود را پیدا کرده است.
-
-
-
-
-
+پس از مشخص شدن بردارها، نوبت به محاسبه‌ی فاصله‌ی میان دوبردار، و درپی آن محاسبه‌ی شباهت میان دوبردار می‌رسد. برای محاسبه‌ی فاصله‌ی میان دوبردار، میتوان از معیارهای اشاره‌شده، در شکل\ref{fig:distance} استفاده کرد.
 
 
+\section{نتایج تجربی}
+ما یک شبیه‌ساز اجرا کردیم که با برنامه‌نویسی توزیع‌شده، مانند هدوپ، و در دوبخش نگاشت و کاهش کار می‌کند. که آن از چند ماشبن، و چند کار همزمان پشتیبانی می‌کند. این فریمورک در پردازش کلان‌داده، و با داده‌های بی‌ساختار مورد آزمون قرار گرفت.
+نتایج آن در دوقسمت که یکی \lr{TP} و \lr{FP} بود ارزیابی شد. سیستم دقت ۹۵ درصدی برای \lr{TP} داشت.
 
-
-
-\section{فرمول نویسی}
-\begin{align*}
-\max z =&\sum_{k=1}^{k_1}(c_{1}X^{1,K})\lambda_{1k}+\sum_{k=1}^{k_1}(c_{2}X^{2,K})\lambda_{2k}+\cdots+\sum_{k=1}^{k_n}(c_{n}X^{n,K})\lambda_{nk} \\
-st:\qquad&\sum_{k=1}^{k_1} (A_{1}X^{1,k})\lambda_{1k}+\sum_{k=1}^{k_2}(A_{2}X^{2,k})\lambda_{2k}+\cdots+\sum_{k=1}^{k_n}(A_{n}X^{n,k})\lambda_{nk}\leq b_{0} \\
-&\sum_{k=1}^{k_1}\lambda_{1k}=1\\
-&\sum_{k=1}^{k_1}\lambda_{1k}=1\\
-&\qquad\vdots\\
-&\sum_{k=1}^{k_1}\lambda_{1k}=1\\
-&\lambda_{jk}\geq 0\\
-\end{align*}
-
-
-
-\section{نتایج}
-در این قسمت نتایج نوشته می شود.\\
-مهندسین صنایع در سالهای اخیر در طیف وسیعی از مشاغل به کار گرفته شده اند. علاوه بر زمینه های تخصصی، فارغ التحصیلان این رشته در
-زمینه هایی مانند مهندسی نرم افزار، فناوری اطلاعات، هوش کسب و کار، داده کاوی، علم داده و کلان داده نیز عملکرد موفقی داشته اند. زمینه های
-کاری دیگر این رشته مدیریت تولید و خط تولید، برنامه ریزی خطی و غیر خطی، آینده پژوهی و مدیریت فناوری و نوآوری که دو رشته بسیار خوب
-در کشور های اروپایی می باشند.
 
 \begin{thebibliography}{99}
 \bibitem{}
-سایت فرادرس
+\lr{J. K. Bradley, A. Kyrola, D. Bickson, and C. Guestrin, “Parallel coordinate descent for l1-regularized
+loss minimization,” in Proc. Int. Conf. Mach. Learn., 2011, pp. 321–328.}
 \bibitem{}
-سایت ویکی پدیا فارسی
-
-
-
-
+\lr{A. Agarwal and J. C. Duchi, “Distributed delayed stochastic optimization,” in Proc. Adv. Neural Inf.
+Process. Syst., 2011, pp. 873–881.}
+\bibitem{}
+\lr{M. Zinkevich, J. Langford, and A. J. Smola, “Slow learners are fast,” in Proc. Adv. Neural Inf.
+Process. Syst., 2009, pp. 2331–2339.}
+\bibitem{}
+\lr{J. Dean, G. Corrado, R. Monga, K. Chen, M. Devin, Q. Le, M. Mao, M. Ranzato, A. Senior, P.
+Tucker, K. Yang, and A. Ng, “Large scale distributed deep networks,” in Proc. Adv. Neural Inf.
+Process. Syst., 2012, pp. 1232–1240.}
+\bibitem{}
+\lr{M. D. Hoffman, D. M. Blei, C. Wang, and J. Paisley, “Stochastic variational inference,” J. Mach.
+Learn. Res., vol. 14, pp. 1303–1347, 2013.}
+\bibitem{}
+\lr{S. A. Williamson, A. Dubey, and E. P. Xing, “Parallel Markov chain Monte Carlo for nonparametric
+mixture models,” in Proc.Int. Conf. Mach. Learn., 2013, pp. 98–106.}
+\bibitem{}
+\lr{T. White, Hadoop: The Definitive Guide. Sebastopol, CA, USA: O’Reilly Media, 2012}
+\bibitem{}
+\lr{Y. Low, J. Gonzalez, A. Kyrola, D. Bickson, C. Guestrin, and J. M. Hellerstein, “Distributed
+GraphLab: A framework for machine learning and data mining in the cloud,” in Proc. VLDB
+Endowment, vol. 5, pp. 716–727, 2012.}
+\bibitem{}
+\lr{M. Zaharia, M. Chowdhury, M. J. Franklin, S. Shenker, and I. Stoica, “Spark: Cluster computing with
+working sets,” in Proc. 2nd USENIX Conf. Hot Topics Cloud Comput., 2010, p. 10.}
+\bibitem{}
+\lr{M. Li, D. G. Andersen, J. W. Park, A. J. Smola, A. Ahmed, V. Josifovski, J. Long, E. J. Shekita, and
+B.-Y. Su, “Scaling distributed machine learning with the parameter server,” in Proc. 11th USENIX
+Conf. Operating Syst. Des. Implementation, 2014, pp. 583–598.}
+\bibitem{}
+\lr{R. Power and J. Li, “Piccolo: Building fast, distributed programs with partitioned tables,” in Proc.
+USENIX Conf. Operating Syst. Des. Implementation, article 10, 2010, pp. 1–14.}
 \end{thebibliography}
-
-
-
-
-
-
-
-
-
 \end{document}
-
-
